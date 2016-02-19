@@ -1,0 +1,161 @@
+{
+  "faq_categories": {
+    "collection": "faqcategory",
+    "column_mapping": {
+      "id": "mysql_id",
+      "order": "order",
+      "category": "title",
+      "descr": "description",
+      "sub_category_of": "is_subcategory"
+    }
+  },
+  "faq_entries": {
+    "collection": "faqentry",
+    "column_mapping": {
+      "id": "mysql_id",
+      "order": "order",
+      "category_id": "category",
+      "question": "question",
+      "answer": "answer",
+      "related_faqs": "related"
+    }
+  },
+  "companies": [{
+    "collection": "user",
+    "column_mapping": {
+      "id": "mysql_id",
+      "password": "password",
+      "username": "username",
+      "ap_email": "email",
+      "salutation": "gender",
+      "title": "title",
+      "prename": "firstname",
+      "surname": "lastname",
+      "position": "position",
+      "department": "department",
+      "ap_tel": "phone",
+      "ap_fax": "fax",
+      "ap_mobile": "mobile",
+      "companyname": "company"
+    }
+  }, {
+    "collection": "company",
+    "column_mapping": {
+      "id": "mysql_id&&contacts",
+      "id_max": "crm_id",
+      "canlogin": "allow_login",
+      "visible": "is_visible",
+      "anbieterprofilplus": "plus_profile",
+      "profiletype": "type",
+      "companyname": "name",
+      "companyabout": "description",
+      "companyoccupation": "focus",
+      "companyreferences": "references",
+      "comments": "comments",
+      "street": "street",
+      "zip": "zip",
+      "city": "city",
+      "countrycode": "country",
+      "phone": "phone",
+      "fax": "fax",
+      "email": "email",
+      "internet": "website",
+      "termsandconditions_url": "terms_url",
+      "newsletter": "newsletter",
+      "id_logo": "logo",
+      "username": "user"
+    }
+  }, {
+    "collection": "contact",
+    "column_mapping": {
+      "id": "mysql_id",
+      "prename": "firstname",
+      "surname": "lastname",
+      "ap_tel": "phone",
+      "ap_fax": "fax",
+      "ap_mobile": "mobile",
+      "ap_email": "email",
+      "companyname": "company"
+    }
+  }],
+  "bookrecommendations": {
+    "collection": "recommendation",
+    "column_mapping": {
+      "id": "mysql_id",
+      "title": "title",
+      "url": "url",
+      "description": "description",
+      "publisher": "publisher",
+      "headline": "book_title",
+      "date": "createdAt",
+      "filename": "image"
+    }
+  },
+  "categories_groups": {
+    "collection": "category",
+    "column_mapping": {
+      "id": "mysql_id&&order",
+      "groupname": "title"
+    }
+  },
+  "categories": {
+    "collection": "categoryentry",
+    "column_mapping": {
+      "id": "mysql_id",
+      "title": "title",
+      "groupname": "category"
+    }
+  },
+  "seminars": {
+    "collection": "seminar",
+    "column_mapping": {
+      "id": "mysql_id",
+      "id_company": "company",
+      "id_category": "categories",
+      "id_pdf": "pdf_id",
+      "createtime": "createdAt",
+      "modificationtime": "updatedAt",
+      "isvariabledate": "variable_date",
+      "begindate": "start_date",
+      "enddate": "end_date",
+      "activated": "active",
+      "title": "title",
+      "shortdescription": "short_description",
+      "description": "long_description",
+      "comments": "additional",
+      "audience": "audience",
+      "prerequise": "prerequise",
+      "isinhouse": "in_house",
+      "location": "location_name",
+      "locationcity": "location_city",
+      "locationzip": "location_zip",
+      "costs": "price",
+      "taxrate": "tax_rate",
+      "geo_length": "geo_length",
+      "geo_width": "geo_width",
+      "geo_location": "geo_location"
+    }
+  },
+  "bookingconfirmation": {
+    "collection": "participant",
+    "column_mapping": {
+      "id": "mysql_id",
+      "seminar_id": "seminar",
+      "participant_salutation": "gender",
+      "participant_title": "title",
+      "participant_prename": "firstname",
+      "participant_surname": "lastname",
+      "participant_company": "company",
+      "participant_zip": "zip",
+      "participant_city": "city",
+      "participant_countrycode": "country",
+      "participant_phone": "phone",
+      "participant_email": "email",
+      "optinCode": "optin_code",
+      "timestampOptinMailSent": "optin_send",
+      "timestampOptinConfirmationReceived": "optin_confirmation",
+      "timestampBooking": "booking_date",
+      "num_participants": "amount"
+    }
+  }
+}

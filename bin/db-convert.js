@@ -18,19 +18,18 @@ program.version(pkg.version, '-v, --version');
 program
   .command('convert')
   .alias('con')
-  .option('-s, --sync', 'Run migration in synchrone mode.')
-  .option('-t, --table [table]', 'Run migration for a single table.')
-  .option('-d, --drop', 'Drop mongodb collections if they exist.')
-  .option('-r, --relation-only',
-    'Build only relations between collections. (No migration!)')
-  .option('-q, --quiet', 'No output except of errors.')
-  .option('-l, --log-level [level]', 'Define a log level [level].',
+  .option('--sync', 'Run migration in synchrone mode.')
+  .option('--table [table]', 'Run migration for a single table.')
+  .option('--drop', 'Drop mongodb collections if they exist.')
+  .option('--quiet', 'No output except of errors.')
+  .option('--log [level]', 'Define a log level [level].',
     'info, debug, verbose, silly')
-  .option('-L, --log-path [path]', 'Specify a log path (default: cwd).')
-  .option('-mongo, --mongo-host [[user:password@]host:port]',
+  .option('--logPath [path]', 'Specify a log path (default: cwd).')
+  .option('--fromHost [[user:password@]host:port]',
     'Run migration for a single table.')
-  .option('-mysql, --mysql-host [[user:password@]host:port]',
+  .option('--toHost [[user:password@]host:port]',
     'Run migration for a single table.')
+  .option('--config [path]', 'path to your config.json')
   .usage('[options]')
   .description('Runs migration and relation builder with the given options')
   .action(function(options) {
@@ -40,17 +39,18 @@ program
 program
   .command('migrate')
   .alias('mig')
-  .option('-s, --sync', 'Run migration in synchrone mode.')
-  .option('-t, --table [table]', 'Run migration for a single table.')
-  .option('-d, --drop', 'Drop mongodb collections if they exist.')
-  .option('-q, --quiet', 'No output except of errors.')
-  .option('-l, --log-level [level]', 'Define a log level [level].',
+  .option('--sync', 'Run migration in synchrone mode.')
+  .option('--table [table]', 'Run migration for a single table.')
+  .option('--drop', 'Drop mongodb collections if they exist.')
+  .option('--quiet', 'No output except of errors.')
+  .option('--log [level]', 'Define a log level [level].',
     'info, debug, verbose, silly')
-  .option('-L, --log-path [path]', 'Specify a log path (default: cwd).')
-  .option('-mongo, --mongo-host [[user:password@]host:port]',
+  .option('--logPath [path]', 'Specify a log path (default: cwd).')
+  .option('--fromHost [[user:password@]host:port]',
     'Run migration for a single table.')
-  .option('-mysql, --mysql-host [[user:password@]host:port]',
+  .option('--toHost [[user:password@]host:port]',
     'Run migration for a single table.')
+  .option('--config [path]', 'path to your config.json')
   .usage('[options]')
   .description('Runs migration only with the given options, no relations!')
   .action(function(options) {
@@ -60,14 +60,17 @@ program
 program
   .command('relation')
   .alias('rel')
-  .option('-s, --sync', 'Run migration in synchrone mode.')
-  .option('-t, --table [table]', 'Run migration for a single table.')
-  .option('-q, --quiet', 'No output except of errors.')
-  .option('-l, --log-level [level]', 'Define a log level [level].',
+  .option('--sync', 'Run migration in synchrone mode.')
+  .option('--table [table]', 'Run migration for a single table.')
+  .option('--quiet', 'No output except of errors.')
+  .option('--log [level]', 'Define a log level [level].',
     'info, debug, verbose, silly')
-  .option('-L, --log-path [path]', 'Specify a log path (default: cwd).')
-  .option('-mongo, --mongo-host [[user:password@]host:port]',
+  .option('--logPath [path]', 'Specify a log path (default: cwd).')
+  .option('--fromHost [[user:password@]host:port]',
     'Run migration for a single table.')
+  .option('--toHost [[user:password@]host:port]',
+    'Run migration for a single table.')
+  .option('--config [path]', 'path to your config.json')
   .usage('[options]')
   .description(
     'Runs relation builder only with the given options, no migration!')

@@ -1,0 +1,12 @@
+{
+  "log": "debug",
+
+  "fromHost": {
+    "host": "localhost",
+    "port": "27017",
+    "database": "test",
+    "adapter": "adapter-mongodb"
+  },
+
+  "toHost": "localhost:27017/test"
+}

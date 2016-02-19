@@ -2,10 +2,24 @@
 
 'use strict';
 
-module.exports = function(args) {
-  var dbc = require('../lib/db-convert');
+var DBconvert = require('../lib');
+var conf = require('../lib/configuration/rcconf');
+var pkg = require('../package.json');
+var _ = require('lodash');
+var log = require('winston');
 
-  dbc = new dbc();
+module.exports = function() {
 
-  dbc.initialize(args);
+  log.level = conf['log-level'] || conf.l || 'info';
+
+  log.info('Starting database migration...');
+
+  var config = _.merge({
+    rootPath: process.cwd(),
+    dbConvertPackageJSON: pkg
+  }, conf);
+
+  DBconvert = new DBconvert(config);
+
+  DBconvert.convert();
 };
