@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 
+'use strict';
+
 var _ = require('lodash');
 var program = require('./commands');
-var package = require('../package.json');
+var pkg = require('../package.json');
 var NOOP = function() {};
 
 process.argv = _.map(process.argv, function(arg) {
@@ -11,7 +13,7 @@ process.argv = _.map(process.argv, function(arg) {
 
 program.unknownOption = NOOP;
 
-program.version(package.version, '-v, --version');
+program.version(pkg.version, '-v, --version');
 
 program
   .command('convert')

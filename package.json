@@ -1,13 +1,13 @@
 {
-  "name": "mysql-2-mongo",
-  "version": "0.1.0",
-  "description": "Migrate your MySQL Database to MongoDB",
-  "main": "migrate.js",
+  "name": "db-convert",
+  "version": "0.0.1",
+  "description": "Convert your MySQL to MongoDB.",
+  "main": "lib/db-convert.js",
   "scripts": {
-    "test": "mocha > coverage.html"
+    "test": "mocha > coverage/coverage.html"
   },
   "bin": {
-    "m2m": "./bin/m2m.js"
+    "dbc": "./bin/db-convert.js"
   },
   "config": {
     "blanket": {
@@ -18,9 +18,12 @@
     }
   },
   "keywords": [
-    "migrate",
+    "convert",
+    "database",
+    "relational",
+    "nosql",
     "mysql",
-    "mongo"
+    "mongodb"
   ],
   "author": "Dominic Rico-Gomez",
   "license": "MIT",
@@ -37,6 +40,11 @@
   },
   "devDependencies": {
     "blanket": "^1.2.1",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-mocha-test": "^0.12.7",
+    "jshint-stylish": "^2.1.0",
+    "load-grunt-tasks": "^3.4.0",
     "mocha": "^2.4.5"
   }
 }
