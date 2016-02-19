@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 module.exports = function(args) {
-  var m2m = require('../lib/m2m.js');
+  var dbc = require('../lib/db-convert');
 
-  m2m = new m2m();
+  dbc = new dbc();
 
-  m2m.initialize(args);
+  dbc.initialize(args);
 };

@@ -14,7 +14,8 @@ program.unknownOption = NOOP;
 program.version(package.version, '-v, --version');
 
 program
-  .command('run')
+  .command('convert')
+  .alias('con')
   .option('-s, --sync', 'Run migration in synchrone mode.')
   .option('-t, --table [table]', 'Run migration for a single table.')
   .option('-d, --drop', 'Drop mongodb collections if they exist.')
@@ -31,7 +32,7 @@ program
   .usage('[options]')
   .description('Runs migration and relation builder with the given options')
   .action(function(options) {
-    require('./run')(options);
+    require('./convert')(options);
   });
 
 program
