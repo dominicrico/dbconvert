@@ -1,7 +1,7 @@
 language: node_js
 node_js:
-  - "0.10"
+  - "0.10.40"
 before_script:
-  - npm run bower
+  - npm install grunt-cli -g
 after_success:
   - cat ./coverage/*/lcov.info | ./node_modules/coveralls/bin/coveralls.js
