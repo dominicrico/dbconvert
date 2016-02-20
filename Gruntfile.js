@@ -30,8 +30,8 @@ module.exports = function(grunt) {
           require: ['test/helpers/chai.js', 'coverage/blanket'],
           coverage: true,
           check: {
-            lines: 75,
-            statements: 75
+            lines: 50,
+            statements: 50
           },
           root: './lib',
         }
