@@ -12,7 +12,19 @@ module.exports = function() {
 
   log.level = conf.log;
 
-  log.info('Starting database convertion...');
+  log.setLevels(log.config.npm.levels);
+  log.addColors({
+    error: 'red',
+    warn: 'yellow',
+    info: 'blue',
+    verbose: 'green',
+    debug: 'blue',
+    silly: 'magenta'
+  });
+
+  if (!conf._.quiet) {
+    log.info('Starting database convertion...');
+  }
 
   delete conf.configs;
 

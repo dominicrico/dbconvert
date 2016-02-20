@@ -2,6 +2,7 @@
 
 'use strict';
 
+global.i = 0;
 var _ = require('lodash');
 var program = require('./commands');
 var pkg = require('../package.json');
