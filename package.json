@@ -4,7 +4,7 @@
   "description": "Convert your MySQL to MongoDB.",
   "main": "lib/db-convert.js",
   "scripts": {
-    "test": "mocha > coverage/coverage.html"
+    "test": "grunt"
   },
   "bin": {
     "dbconvert": "./bin/db-convert.js"
