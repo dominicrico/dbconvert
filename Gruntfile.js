@@ -16,21 +16,28 @@ module.exports = function(grunt) {
     mochaTest: {
       test: {
         options: {
-          reporter: 'mocha-lcov-reporter',
+          reporter: 'spec',
           require: ['test/helpers/chai.js', 'coverage/blanket']
         },
         src: ['test/**/*.spec.js']
-      },
-      coverage: {
+      }
+    },
+
+    mocha_istanbul: {
+      coveralls: {
+        src: 'test', // multiple folders also works
         options: {
-          reporter: 'html-cov',
-          quiet: true,
-          captureFile: 'coverage/coverage.lcov'
-        },
-        src: ['test/**/*.js']
+          require: ['test/helpers/chai.js', 'coverage/blanket'],
+          coverage: true,
+          check: {
+            lines: 75,
+            statements: 75
+          },
+          root: './lib',
+        }
       }
     }
   });
 
-  grunt.registerTask('default', ['jshint', 'mochaTest']);
+  grunt.registerTask('default', ['jshint', 'mochaTest', 'mocha_istanbul']);
 };
