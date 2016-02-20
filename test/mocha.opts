@@ -3,4 +3,5 @@
 --recursive
 --growl
 --ui tdd
---require blanket
+--require coverage/blanket
+--require test/helpers/chai

@@ -10,22 +10,22 @@ module.exports = function(grunt) {
         jshintrc: true,
         reporter: require('jshint-stylish')
       },
-      all: ['bin/*.js', 'lib/**/*.js', 'test/**/*.js']
+      all: ['bin/*.js', 'lib/**/*.js']
     },
 
     mochaTest: {
       test: {
         options: {
-          reporter: 'spec',
-          require: 'coverage/blanket'
+          reporter: 'mocha-lcov-reporter',
+          require: ['test/helpers/chai.js', 'coverage/blanket']
         },
-        src: ['test/**/*.js']
+        src: ['test/**/*.spec.js']
       },
       coverage: {
         options: {
           reporter: 'html-cov',
           quiet: true,
-          captureFile: 'coverage/coverage.html'
+          captureFile: 'coverage/coverage.lcov'
         },
         src: ['test/**/*.js']
       }
