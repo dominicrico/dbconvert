@@ -1,7 +1,7 @@
 'use strict';
 
 var dbConvert = require('../lib');
-var config = require('../example/config.json');
+var config = require('./helpers/config.json');
 
 describe('DBConvert start up', function() {
 
@@ -26,15 +26,26 @@ describe('DBConvert start up', function() {
 
   it('should establish db connections', function(done) {
     dbConvert.connect(function() {
+      dbConvert.connections.fromHost.useCollection('test');
       global.expect(dbConvert.connections).to.not.be.undefined;
       global.expect(dbConvert.connections.toHost).to.not.be.undefined;
       global.expect(dbConvert.connections.fromHost).to.not.be.undefined;
+      global.expect(dbConvert.connections.fromHost.collection).to.not
+        .be.undefined;
+      global.expect(dbConvert.connections.fromHost.collection).to.be
+        .an('object');
       global.expect(dbConvert.connections).to.be.an('object');
       done();
     });
+  });
 
-    after(function() {
-      dbConvert.down();
+  it('should shutdown db convert', function(done) {
+    dbConvert.down(function() {
+      global.expect(dbConvert.connections.fromHost.db)
+        .to.be.undefined;
+      global.expect(dbConvert._processListeners)
+        .to.be.null;
+      done();
     });
   });
 });

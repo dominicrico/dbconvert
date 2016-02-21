@@ -1,0 +1,14 @@
+{
+  "log": "info",
+
+  "quiet": true,
+
+  "fromHost": {
+    "host": "176.9.114.232",
+    "port": "27017",
+    "database": "test",
+    "adapter": "adapter-mongodb"
+  },
+
+  "toHost": "176.9.114.232:27017/test"
+}
