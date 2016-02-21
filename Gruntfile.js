@@ -2,6 +2,7 @@ module.exports = function(grunt) {
 
   'use strict';
 
+  require('time-grunt')(grunt);
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
@@ -28,7 +29,7 @@ module.exports = function(grunt) {
         src: 'test',
         options: {
           require: ['test/helpers/chai.js', 'coverage/blanket'],
-          coverage: true,
+          quiet: true,
           check: {
             branches: 55,
             lines: 80,
@@ -42,4 +43,5 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('default', ['jshint', 'mochaTest', 'mocha_istanbul']);
+
 };
