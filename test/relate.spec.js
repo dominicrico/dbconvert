@@ -5,18 +5,41 @@ var config = require('./helpers/config.json');
 config._ = ['rel'];
 var dbConv;
 
+describe('DBConvert', function() {
 
-describe('DBConvert running relate', function() {
-
-  before(function(done) {
+  beforeEach(function(done) {
+    this.timeout(500);
     dbConv = new dbConvert.DBconvert();
-    done();
+    setTimeout(function() {
+      done();
+    }, 400);
   });
 
-  it('should start the relation process', function(done) {
-    dbConv.relate(config, function() {
+  describe('relate only', function() {
+
+    it('should start the relation process', function(done) {
+      dbConv.relate(config, function() {
+        global.expect(dbConv).to.be.an('object');
+        global.expect(dbConv.config).to.be.an('object');
+        global.expect(dbConv.config).to.be.defined;
+        done();
+      });
+    });
+
+  });
+
+  describe('migration only without config', function() {
+
+    it('should throw an error', function(done) {
+      var fn = function() {
+        dbConv.relate();
+      };
+
+      global.expect(fn).to.throw(Error,
+        'Cannot read property \'_\' of undefined');
       done();
     });
+
   });
 
 });

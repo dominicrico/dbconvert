@@ -6,9 +6,8 @@
   "fromHost": {
     "host": "176.9.114.232",
     "port": "27017",
-    "database": "test",
-    "adapter": "adapter-mongodb"
+    "database": "test"
   },
 
-  "toHost": "176.9.114.232:27017/test"
+  "toHost": "mongodb://176.9.114.232:27017/test"
 }

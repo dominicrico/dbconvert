@@ -4,12 +4,12 @@ var dbConvert = require('../lib');
 var config = require('./helpers/config.json');
 var dbConv;
 
-describe('DBConvert system', function() {
+before(function(done) {
+  dbConv = new dbConvert.DBconvert();
+  done();
+});
 
-  before(function(done) {
-    dbConv = new dbConvert.DBconvert();
-    done();
-  });
+describe('DBConvert system', function() {
 
   it('should load the configuration', function(done) {
     dbConv.load(config, function() {
