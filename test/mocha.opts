@@ -1,7 +1,0 @@
---timeout 5000
---reporter html-cov
---recursive
---growl
---ui tdd
---require coverage/blanket
---require test/helpers/chai

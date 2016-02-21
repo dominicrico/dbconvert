@@ -32,5 +32,5 @@ module.exports = function() {
     dbConvertPackageJSON: pkg
   }, conf);
 
-  DBconvert.convert(config);
+  DBconvert.relate(config);
 };
