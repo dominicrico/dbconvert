@@ -25,7 +25,7 @@ module.exports = function(grunt) {
 
     mocha_istanbul: {
       coveralls: {
-        src: 'test', // multiple folders also works
+        src: 'test',
         options: {
           require: ['test/helpers/chai.js', 'coverage/blanket'],
           coverage: true,
