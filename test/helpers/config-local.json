@@ -4,12 +4,12 @@
   "quiet": true,
 
   "fromHost": {
-    "host": "176.9.114.232",
+    "host": "localhost",
     "port": "27017",
     "database": "test"
   },
 
   "mapping": "./example",
 
-  "toHost": "mongodb://176.9.114.232:27017/test"
+  "toHost": "mongodb://localhost:27017/test"
 }

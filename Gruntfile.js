@@ -2,7 +2,6 @@ module.exports = function(grunt) {
 
   'use strict';
 
-  require('time-grunt')(grunt);
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
@@ -43,5 +42,9 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('default', ['jshint', 'mochaTest', 'mocha_istanbul']);
+
+  grunt.registerTask('test', ['jshint', 'mochaTest']);
+
+  grunt.registerTask('build', ['default'])
 
 };

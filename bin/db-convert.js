@@ -31,6 +31,8 @@ program
   .option('--toHost [[user:password@]host:port]',
     'Run migration for a single table.')
   .option('--config [path]', 'path to your config.json')
+  .option('--mapping [path]', 'path to your mapping.json')
+  .option('--relation [path]', 'path to your relation.json')
   .usage('[options]')
   .description('Runs migration and relation builder with the given options')
   .action(function(options) {

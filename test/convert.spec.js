@@ -1,40 +1,65 @@
 'use strict';
 
 var dbConvert = require('../lib');
-var config = require('./helpers/config.json');
-var dbConv;
+var should = require('./helpers/chai').should;
+var config, dbConv;
+
+if (!process.env.TRAVIS_CI) {
+  config = require('./helpers/config-local.json');
+} else {
+  config = require('./helpers/config.json');
+}
 
 describe('DBConvert', function() {
 
-  beforeEach(function(done) {
-    this.timeout(500);
-    dbConv = new dbConvert.DBconvert();
-    setTimeout(function() {
+  describe('running `convert` with config', function() {
+
+    before(function(done) {
+      this.timeout(500);
+      dbConv = new dbConvert.DBconvert();
+      setTimeout(function() {
+        config._ = [];
+        done();
+      }, 400);
+    });
+
+    after(function(done) {
+      dbConv = undefined;
       done();
-    }, 400);
-  });
+    });
 
-  describe('start convert with config', function() {
-
-    it('should start', function(done) {
+    it('should start converting', function(done) {
       dbConv.convert(config, function() {
-        global.expect(dbConv).to.be.an('object');
-        global.expect(dbConv.config).to.be.an('object');
-        global.expect(dbConv.config).to.be.defined;
+        dbConv.should.be.an('object');
+        dbConv.config.should.to.be.an('object');
+        dbConv.config.should.be.defined;
         done();
       });
     });
 
   });
 
-  describe('start convert without config', function() {
+  describe('running `convert` without config', function() {
+
+    before(function(done) {
+      this.timeout(500);
+      dbConv = new dbConvert.DBconvert();
+      setTimeout(function() {
+        done();
+      }, 400);
+    });
+
+    after(function(done) {
+      dbConv = undefined;
+      done();
+    });
 
     it('should throw an error', function(done) {
       var fn = function() {
         dbConv.connect();
       };
 
-      global.expect(fn).to.throw(Error,
+      fn.should.throw(Error,
         'No database connections configured!');
       done();
     });
