@@ -4,8 +4,9 @@ node_js:
   - "0.11"
   - "4.3"
 before_script:
-  - npm install grunt-cli -g
+  - npm install grunt-cli codeclimate-test-reporter  -g
 script:
   - grunt build
 after_success:
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - codeclimate-test-reporter < lcov.info
