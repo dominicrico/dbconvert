@@ -6,10 +6,14 @@
   "fromHost": {
     "host": "176.9.114.232",
     "port": "27017",
-    "database": "test"
+    "database": "test",
+    "user": "dbConvert",
+    "password": "dbConvert123"
   },
 
-  "mapping": "./example",
+  "drop": true,
 
-  "toHost": "mongodb://176.9.114.232:27017/test"
+  "mapping": "/test/helpers/mapping.js",
+
+  "toHost": "mongodb://dbConvert:dbConvert123@176.9.114.232:27017/test"
 }

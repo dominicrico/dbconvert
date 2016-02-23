@@ -1,7 +1,7 @@
 {
   "log": "debug",
 
-  "mapping": "./example",
+  "mapping": "/example/mapping.js",
 
   "fromHost": {
     "host": "localhost",

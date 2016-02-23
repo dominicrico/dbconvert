@@ -9,7 +9,9 @@
     "database": "test"
   },
 
-  "mapping": "./example",
+  "drop": true,
+
+  "mapping": "/test/helpers/mapping.js",
 
   "toHost": "mongodb://localhost:27017/test"
 }
