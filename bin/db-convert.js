@@ -2,6 +2,8 @@
 
 'use strict';
 
+/* eslint global-require: 0 */
+
 global.i = 0;
 var _ = require('lodash');
 var program = require('./commands');
