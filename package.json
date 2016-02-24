@@ -1,6 +1,6 @@
 {
   "name": "dbconvert",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Convert your MySQL to MongoDB.",
   "main": "lib/db-convert.js",
   "scripts": {
