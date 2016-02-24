@@ -1,16 +1,13 @@
-#!/usr/bin/env node
-
 'use strict';
 
-var DBconvert = require('../lib');
 var conf = require('../lib/configuration/rcconf');
 var pkg = require('../package.json');
 var _ = require('lodash');
 var log = require('winston').cli();
 
-module.exports = function() {
-
+module.exports = function(msg) {
   log.level = conf.log;
+
   log.setLevels(log.config.npm.levels);
   log.addColors({
     error: 'red',
@@ -21,8 +18,8 @@ module.exports = function() {
     silly: 'magenta'
   });
 
-  if (!conf._.quiet) {
-    log.info('Starting rollback of last migration...');
+  if (!conf._.silent) {
+    log.info(msg);
   }
 
   delete conf.configs;
@@ -32,5 +29,5 @@ module.exports = function() {
     dbConvertPackageJSON: pkg
   }, conf);
 
-  DBconvert.rollback(config);
+  return config;
 };
