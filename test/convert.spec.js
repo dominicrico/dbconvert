@@ -91,6 +91,7 @@ describe('DBConvert', function() {
       });
 
       it('should start converting', function(done) {
+        this.timeout(10000);
         dbConv.convert(configMysql, function() {
           dbConv.should.be.an('object');
           dbConv.config.should.to.be.an('object');

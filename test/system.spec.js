@@ -18,7 +18,7 @@ describe('DBConvert system', function() {
 
     describe('normal startup', function() {
       before(function(done) {
-        this.timeout(500);
+        this.timeout(1000);
         dbConv = new dbConvert.DBconvert();
         setTimeout(function() {
           config._ = [];
