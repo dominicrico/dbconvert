@@ -8,7 +8,7 @@ Status](https://david-dm.org/dominicrico/db-convert/dev-status.svg)](https://dav
 DB Convert helps to transfer one database to a different type of database, for example a MySQL database to a MongoDB. DB Convert allows to run a full conversion with relation building or just the single steps. DB Convert also have a rollback functionality. Usable as command line tool or in your code.
 
 Available via NPM
-- `npm install -g db-convert`
+- `npm install -g dbconvert`
 
 ## Quick Example
 
