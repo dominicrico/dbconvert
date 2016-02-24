@@ -8,7 +8,7 @@ if (!process.env.TRAVIS_CI) {
   config = require('./helpers/config-local.json');
   configMysql = require('./helpers/config-mysql.json');
 } else {
-  config = require('./helpers/config.json');
+  config = require('./helpers/config-mongo.json');
   configMysql = require('./helpers/config-mysql.json');
 }
 

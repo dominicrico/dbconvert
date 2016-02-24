@@ -2,8 +2,8 @@
 
 # DB Convert
 
-[![Coverage Status](https://coveralls.io/repos/github/dominicrico/db-convert/badge.svg?branch=master)](https://coveralls.io/github/dominicrico/db-convert?branch=master) [![Build Status](https://travis-ci.org/dominicrico/db-convert.svg?branch=master)](https://travis-ci.org/dominicrico/db-convert) [![Code Climate](https://codeclimate.com/github/dominicrico/db-convert/badges/gpa.svg)](https://codeclimate.com/github/dominicrico/db-convert) [![Dependency Status](https://david-dm.org/dominicrico/db-convert.svg)](https://david-dm.org/dominicrico/db-convert) [![devDependency
-Status](https://david-dm.org/dominicrico/db-convert/dev-status.svg)](https://david-dm.org/dominicrico/db-convert#info=devDependencies)
+[![Coverage Status](https://coveralls.io/repos/github/dominicrico/dbconvert/badge.svg?branch=master)](https://coveralls.io/github/dominicrico/dbconvert?branch=master) [![Build Status](https://travis-ci.org/dominicrico/dbconvert.svg?branch=master)](https://travis-ci.org/dominicrico/dbconvert) [![Code Climate](https://codeclimate.com/github/dominicrico/dbconvert/badges/gpa.svg)](https://codeclimate.com/github/dominicrico/dbconvert) [![Dependency Status](https://david-dm.org/dominicrico/dbconvert.svg)](https://david-dm.org/dominicrico/dbconvert) [![devDependency
+Status](https://david-dm.org/dominicrico/dbconvert/dev-status.svg)](https://david-dm.org/dominicrico/dbconvert#info=devDependencies)
 
 DB Convert helps to transfer one database to a different type of database, for example a MySQL database to a MongoDB. DB Convert allows to run a full conversion with relation building or just the single steps. DB Convert also have a rollback functionality. Usable as command line tool or in your code.
 
