@@ -27,12 +27,14 @@ describe('DBConvert rollback', function() {
   });
 
   it('should migrate new data', function(done) {
+    this.timeout(5000);
     dbConv.convert(config, function() {
       done();
     });
   });
 
   it('should do a rollback', function(done) {
+    this.timeout(10000);
     dbConv.rollback(config, function() {
       var host = dbConv.connections.toHost;
       host.connect(function() {
