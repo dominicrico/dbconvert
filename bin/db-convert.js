@@ -23,18 +23,19 @@ program
   .alias('con')
   .option('--sync', 'Run migration in synchrone mode.')
   .option('--table [table]', 'Run migration for a single table.')
-  .option('--drop', 'Drop mongodb collections if they exist.')
+  .option('--drop',
+    'Drop collections/tables if they exist on destination host.')
   .option('--quiet', 'No output except of errors.')
   .option('--log [level]', 'Define a log level [level].',
     'info, debug, verbose, silly')
   .option('--logPath [path]', 'Specify a log path (default: cwd).')
-  .option('--fromHost [[user:password@]host:port]',
-    'Run migration for a single table.')
-  .option('--toHost [[user:password@]host:port]',
-    'Run migration for a single table.')
+  .option('--fromHost [[protocol://][user:password@]host:port]',
+    'Connection string for the host to migrate from.')
+  .option('--toHost [[protocol://][user:password@]host:port]',
+    'Connection string for the host to migrate to.')
   .option('--config [path]', 'path to your config.json')
-  .option('--mapping [path]', 'path to your mapping.json')
-  .option('--relation [path]', 'path to your relation.json')
+  .option('--mapping [path]', 'path to your mapping.js')
+  .option('--relation [path]', 'path to your relation.js')
   .usage('[options]')
   .description('Runs migration and relation builder with the given options')
   .action(function(options) {
@@ -46,15 +47,15 @@ program
   .alias('mig')
   .option('--sync', 'Run migration in synchrone mode.')
   .option('--table [table]', 'Run migration for a single table.')
-  .option('--drop', 'Drop mongodb collections if they exist.')
+  .option('--drop', 'Drop collections/tables if they exist.')
   .option('--quiet', 'No output except of errors.')
   .option('--log [level]', 'Define a log level [level].',
     'info, debug, verbose, silly')
   .option('--logPath [path]', 'Specify a log path (default: cwd).')
-  .option('--fromHost [[user:password@]host:port]',
-    'Run migration for a single table.')
+  .option('--fromHost [[protocol://][user:password@]host:port]',
+    'Connection string for the host to migrate from.')
   .option('--toHost [[user:password@]host:port]',
-    'Run migration for a single table.')
+    'Connection string for the host to migrate to.')
   .option('--config [path]', 'path to your config.json')
   .usage('[options]')
   .description('Runs migration only with the given options, no relations!')
@@ -71,16 +72,31 @@ program
   .option('--log [level]', 'Define a log level [level].',
     'info, debug, verbose, silly')
   .option('--logPath [path]', 'Specify a log path (default: cwd).')
-  .option('--fromHost [[user:password@]host:port]',
-    'Run migration for a single table.')
-  .option('--toHost [[user:password@]host:port]',
-    'Run migration for a single table.')
+  .option('--toHost [[protocol://][user:password@]host:port]',
+    'Connection string for the host to migrate to.')
   .option('--config [path]', 'path to your config.json')
   .usage('[options]')
   .description(
     'Runs relation builder only with the given options, no migration!')
   .action(function(options) {
     require('./relation')(options);
+  });
+
+program
+  .command('rollback')
+  .alias('rb')
+  .option('--table [table]', 'Run migration for a single table.')
+  .option('--quiet', 'No output except of errors.')
+  .option('--log [level]', 'Define a log level [level].',
+    'info, debug, verbose, silly')
+  .option('--logPath [path]', 'Specify a log path (default: cwd).')
+  .option('--toHost [[protocol://][user:password@]host:port[/database]]',
+    'Connection string for the host to migrate to.')
+  .option('--config [path]', 'path to your config.json')
+  .usage('[options]')
+  .description('Revert your last migration.')
+  .action(function(options) {
+    require('./rollback')(options);
   });
 
 program
