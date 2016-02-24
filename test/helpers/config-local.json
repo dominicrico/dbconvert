@@ -1,7 +1,7 @@
 {
   "log": "info",
 
-  "quiet": true,
+  "silent": true,
 
   "fromHost": {
     "host": "localhost",

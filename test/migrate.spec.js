@@ -2,68 +2,137 @@
 
 var dbConvert = require('../lib');
 var should = require('./helpers/chai').should;
-var config, dbConv;
+var config, configMysql, dbConv;
 
 if (!process.env.TRAVIS_CI) {
   config = require('./helpers/config-local.json');
+  configMysql = require('./helpers/config-mysql.json');
 } else {
   config = require('./helpers/config.json');
+  configMysql = require('./helpers/config-mysql.json');
 }
 
-config._ = ['mig'];
+if (config._) {
+  config._ = ['mig']
+};
+if (configMysql._) {
+  configMysql._['mig']
+};
 
 describe('DBConvert', function() {
 
-  describe('migration only with config', function() {
+  describe('using mongo adapter', function() {
 
-    before(function(done) {
-      this.timeout(500);
-      dbConv = new dbConvert.DBconvert();
-      setTimeout(function() {
-        config._ = ['mig'];
-        done();
-      }, 400);
-    });
+    describe('running migration only with config', function() {
 
-    after(function(done) {
-      dbConv = undefined;
-      done();
-    });
+      before(function(done) {
+        this.timeout(500);
+        dbConv = new dbConvert.DBconvert();
+        setTimeout(function() {
+          config._ = ['mig'];
+          done();
+        }, 400);
+      });
 
-    it('should start the migration process', function(done) {
-      dbConv.migrate(config, function() {
-        dbConv.should.be.an('object');
-        dbConv.config.should.be.an('object');
-        dbConv.config.should.be.defined;
+      after(function(done) {
+        dbConv = undefined;
         done();
       });
+
+      it('should start the migration process', function(done) {
+        dbConv.migrate(config, function() {
+          dbConv.should.be.an('object');
+          dbConv.config.should.be.an('object');
+          dbConv.config.should.be.defined;
+          done();
+        });
+      });
+
+    });
+
+    describe('running migration only without config', function() {
+
+      before(function(done) {
+        this.timeout(500);
+        dbConv = new dbConvert.DBconvert();
+        setTimeout(function() {
+          done();
+        }, 400);
+      });
+
+      after(function(done) {
+        dbConv = undefined;
+        done();
+      });
+
+      it('should throw an error', function(done) {
+        var fn = function() {
+          dbConv.migrate();
+        };
+
+        fn.should.throw(Error,
+          'Cannot read property \'_\' of undefined');
+        done();
+      });
+
     });
 
   });
 
-  describe('migration only without config', function() {
+  describe('using mysql adapter', function() {
 
-    before(function(done) {
-      this.timeout(500);
-      dbConv = new dbConvert.DBconvert();
-      setTimeout(function() {
+    describe('running migration only with config', function() {
+
+      before(function(done) {
+        this.timeout(500);
+        dbConv = new dbConvert.DBconvert();
+        setTimeout(function() {
+          configMysql._ = ['mig'];
+          done();
+        }, 400);
+      });
+
+      after(function(done) {
+        dbConv = undefined;
         done();
-      }, 400);
+      });
+
+      it('should start the migration process', function(done) {
+        dbConv.migrate(configMysql, function() {
+          dbConv.should.be.an('object');
+          dbConv.config.should.be.an('object');
+          dbConv.config.should.be.defined;
+          done();
+        });
+      });
+
     });
 
-    after(function(done) {
-      dbConv = undefined;
-      done();
-    });
+    describe('running  migration only without config', function() {
 
-    it('should throw an error', function(done) {
-      var fn = function() {
-        dbConv.migrate();
-      };
+      before(function(done) {
+        this.timeout(500);
+        dbConv = new dbConvert.DBconvert();
+        setTimeout(function() {
+          done();
+        }, 400);
+      });
 
-      fn.should.throw(Error,
-        'Cannot read property \'_\' of undefined');
-      done();
+      after(function(done) {
+        dbConv = undefined;
+        done();
+      });
+
+      it('should throw an error', function(done) {
+        var fn = function() {
+          dbConv.migrate();
+        };
+
+        fn.should.throw(Error,
+          'Cannot read property \'_\' of undefined');
+        done();
+      });
+
     });
 
   });

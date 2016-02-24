@@ -2,66 +2,130 @@
 
 var dbConvert = require('../lib');
 var should = require('./helpers/chai').should;
-var config, dbConv;
+var config, configMysql, dbConv;
 
 if (!process.env.TRAVIS_CI) {
   config = require('./helpers/config-local.json');
+  configMysql = require('./helpers/config-mysql.json');
 } else {
   config = require('./helpers/config.json');
+  configMysql = require('./helpers/config-mysql.json');
 }
 
 describe('DBConvert', function() {
 
-  describe('running `convert` with config', function() {
+  describe('using mongo adapter', function() {
 
-    before(function(done) {
-      this.timeout(500);
-      dbConv = new dbConvert.DBconvert();
-      setTimeout(function() {
-        config._ = [];
-        done();
-      }, 400);
-    });
+    describe('running `convert` with config', function() {
 
-    after(function(done) {
-      dbConv = undefined;
-      done();
-    });
+      before(function(done) {
+        this.timeout(500);
+        dbConv = new dbConvert.DBconvert();
+        setTimeout(function() {
+          config._ = [];
+          done();
+        }, 400);
+      });
 
-    it('should start converting', function(done) {
-      dbConv.convert(config, function() {
-        dbConv.should.be.an('object');
-        dbConv.config.should.to.be.an('object');
-        dbConv.config.should.be.defined;
+      after(function(done) {
+        dbConv = undefined;
         done();
       });
+
+      it('should start converting', function(done) {
+        dbConv.convert(config, function() {
+          dbConv.should.be.an('object');
+          dbConv.config.should.to.be.an('object');
+          dbConv.config.should.be.defined;
+          done();
+        });
+      });
+
+    });
+
+    describe('running `convert` without config', function() {
+
+      before(function(done) {
+        this.timeout(500);
+        dbConv = new dbConvert.DBconvert();
+        setTimeout(function() {
+          done();
+        }, 400);
+      });
+
+      after(function(done) {
+        dbConv = undefined;
+        done();
+      });
+
+      it('should throw an error', function(done) {
+        var fn = function() {
+          dbConv.connect();
+        };
+
+        fn.should.throw(Error,
+          'No database connections configured!');
+        done();
+      });
+
     });
 
   });
 
-  describe('running `convert` without config', function() {
+  describe('using mysql adapter', function() {
 
-    before(function(done) {
-      this.timeout(500);
-      dbConv = new dbConvert.DBconvert();
-      setTimeout(function() {
+    describe('running `convert` with config', function() {
+
+      before(function(done) {
+        this.timeout(500);
+        dbConv = new dbConvert.DBconvert();
+        setTimeout(function() {
+          configMysql._ = [];
+          done();
+        }, 400);
+      });
+
+      after(function(done) {
+        dbConv = undefined;
         done();
-      }, 400);
+      });
+
+      it('should start converting', function(done) {
+        dbConv.convert(configMysql, function() {
+          dbConv.should.be.an('object');
+          dbConv.config.should.to.be.an('object');
+          dbConv.config.should.be.defined;
+          done();
+        });
+      });
+
     });
 
-    after(function(done) {
-      dbConv = undefined;
-      done();
-    });
+    describe('running `convert` without config', function() {
 
-    it('should throw an error', function(done) {
-      var fn = function() {
-        dbConv.connect();
-      };
+      before(function(done) {
+        this.timeout(500);
+        dbConv = new dbConvert.DBconvert();
+        setTimeout(function() {
+          done();
+        }, 400);
+      });
 
-      fn.should.throw(Error,
-        'No database connections configured!');
-      done();
+      after(function(done) {
+        dbConv = undefined;
+        done();
+      });
+
+      it('should throw an error', function(done) {
+        var fn = function() {
+          dbConv.connect();
+        };
+
+        fn.should.throw(Error,
+          'No database connections configured!');
+        done();
+      });
+
     });
 
   });

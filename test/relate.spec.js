@@ -2,17 +2,28 @@
 
 var dbConvert = require('../lib');
 var should = require('./helpers/chai').should;
-var config, dbConv;
+var config, configMysql, dbConv;
 
 if (!process.env.TRAVIS_CI) {
   config = require('./helpers/config-local.json');
+  configMysql = require('./helpers/config-mysql.json');
 } else {
   config = require('./helpers/config.json');
+  configMysql = require('./helpers/config-mysql.json');
 }
 
-config._ = ['rel'];
+if (config._) {
+  config._ = ['rel']
+};
+if (configMysql._) {
+  configMysql._['rel']
+};
 
 describe('DBConvert', function() {
+
+  describe('using mongo adapter', function() {});
+
+  describe('using mysql adapter', function() {});
 
   describe('relate only with config', function() {
 

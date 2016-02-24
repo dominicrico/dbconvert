@@ -1,7 +1,7 @@
 {
   "log": "info",
 
-  "quiet": true,
+  "silent": true,
 
   "fromHost": {
     "host": "176.9.114.232",
