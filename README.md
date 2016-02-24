@@ -97,7 +97,7 @@ dbconvert rb [options] || dbconvert rollback [options]
 --quiet                                                       No output except of errors.
 --log [level]                                                 Define a log level [level].
 --logPath [path]                                              Specify a log path (default: cwd).
---toHost [[protocol://][user:password@]host:port/database]  Connection string for the host to migrate to.
+--toHost [[protocol://][user:password@]host:port/database]    Connection string for the host to migrate to.
 --config [path]                                               path to your config.json
 ```
 
