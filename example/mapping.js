@@ -2,7 +2,7 @@
 
 module.exports = [{
   table: 'mysqlTable1:mongoTable1',
-  rows: [{
+  fields: [{
     a: 'rowMongo1',
     convertFn: function(entry) {
       return 'convertFn ' + entry;
