@@ -98,6 +98,7 @@ describe('DBConvert', function() {
       });
 
       it('should start the migration process', function(done) {
+        this.timeout(10000);
         dbConv.migrate(configMysql, function() {
           dbConv.should.be.an('object');
           dbConv.config.should.be.an('object');
