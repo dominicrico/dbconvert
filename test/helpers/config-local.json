@@ -4,8 +4,8 @@
   "silent": true,
 
   "fromHost": {
-    "host": "localhost",
-    "port": "27017",
+    "hostname": "localhost",
+    "port": 27017,
     "database": "test"
   },
 

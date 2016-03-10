@@ -25,5 +25,20 @@ module.exports = [{
   }, {
     g: 'rowMongo7',
     type: 'json'
+  }],
+  merge: [{
+    unique: 'company',
+    fields: ['rowMongo3', 'rowMongo7'],
+    if: ['rowMongo1', 'rowMongo2'],
+    name: 'rowMongoMerged'
+  }]
+}, {
+  table: 'mysqlTable2:mongoTable2',
+  fields: [{
+    parent: 'relate',
+    type: 'objectId'
+  }, {
+    data: 'data',
+    type: 'string'
   }]
 }];

@@ -2,13 +2,14 @@
   "log": "debug",
 
   "mapping": "/example/mapping.js",
+  "relation": "/example/relation.js",
 
   "fromHost": {
-    "host": "localhost",
+    "hostname": "localhost",
     "port": "27017",
     "database": "test",
     "adapter": "adapter-mongodb"
   },
 
-  "toHost": "dbConvert:dbConvert123@176.9.114.232:3306/test"
+  "toHost": "mysql://dbConvert:dbConvert123@176.9.114.232:3306/test"
 }
