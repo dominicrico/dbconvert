@@ -6,7 +6,7 @@ node_js:
 before_script:
   - npm install grunt-cli codeclimate-test-reporter  -g
 script:
-  - grunt build
+  - grunt build --verbose
 after_success:
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
   - codeclimate-test-reporter < ./coverage/lcov.info
