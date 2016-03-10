@@ -55,7 +55,7 @@ describe('DBConvert', function() {
               function(err,
                 count) {
                 (err === null).should.be.true;
-                count.should.equal(0);
+                count.should.equal(15);
                 done();
               });
           });
@@ -100,7 +100,7 @@ describe('DBConvert', function() {
               function(err,
                 count) {
                 (err === null).should.be.true;
-                count.should.equal(0);
+                count.should.equal(15);
                 done();
               });
           });
