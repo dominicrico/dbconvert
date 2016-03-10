@@ -4,7 +4,7 @@
   "description": "Convert your MySQL to MongoDB.",
   "main": "lib/db-convert.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test --verbose"
   },
   "bin": {
     "dbconvert": "./bin/db-convert.js"
