@@ -1,3 +1,6 @@
+/*eslint-disable*/
+//jshint ignore: start
+
 'use strict';
 
 var dbConvert = require('../lib');

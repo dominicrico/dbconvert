@@ -1,3 +1,6 @@
+/*eslint-disable*/
+//jshint ignore: start
+
 'use strict';
 
 var dbConvert = require('../lib');
@@ -13,11 +16,10 @@ if (!process.env.TRAVIS_CI) {
 }
 
 if (config._) {
-  config._ = ['rel']
-};
-if (configMysql._) {
-  configMysql._['rel']
-};
+  config._ = ['rel'];
+} else if (configMysql._) {
+  configMysql._ = ['rel'];
+}
 
 describe('DBConvert', function() {
 
