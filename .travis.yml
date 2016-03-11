@@ -1,12 +1,20 @@
 language: node_js
 node_js:
-  - "0.10"
-  - "0.12"
-  - "4.3"
+- '0.10'
+- '0.12'
+- '4.3'
 before_script:
-  - npm install grunt-cli codeclimate-test-reporter -g
+- npm install grunt-cli codeclimate-test-reporter -g
 script:
-  - grunt build --verbose
+- grunt build --verbose
 after_success:
-  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
-  - codeclimate-test-reporter < ./coverage/lcov.info
+- cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+- codeclimate-test-reporter < ./coverage/lcov.info
+deploy:
+  provider: npm
+  email: hello@coderocket.me
+  api_key:
+    secure: T1tcwwDbRVzWunnThj25TF3iXYSRfoEucvEB2OwpG2ZtNFnk3qAonsUzkUs+T5XA6Crew3sXcmSUyziIK76wk1VyF3i6LPMAoMIWejTuEdrAY4BChHLN67O5x4wydBupGf71FW3B+gAgDD/FDTKWjI3BYttrVAPq30EcXfK8ga28pcxuQ3LKSQlq2+6O4QqsIHxqkKNz7N/oMXS+OHiTBrJg4IL3f3WsQRG4PzoPfpWDyMHlpd/e3F0sgPI1X4GIESnLInlvHGM/82+c9AzNY0dWvjo5JQlVylztItPS5aLtdNFPsc6OrX9HF5OAuR2/gd92PvJ8ygu9M/z6efO4Ld5i9fchBvKUW9wkvQJvs13GK475QQVbdeZ8t7wkMihykl6i0UHSrZgD6Frqj5AzU6ySHAH6Gum3HRENKzwtKwCkWpugfn8lFD5UYRsnCvBxLOoDZtjX3fTOiMlGtJPwB5/myfHJFK/N3frAGQWhAYYDCBhRgA9BtX/RsDdavHw1Qgjy7wjwNYviExghI6tLeYpj/ZQD+PhJsTVth1WYittYdRAhE4nqHRDNhrDRlFSR8x2AGP4/nQ0D6anR51Od5d04gCvdkT4rzshhyYW62Ls5aSHBCiBg2moy0iIJmnFSuHRNdE6XweTbImJsxb90NNAUTNI0JqXRY5Tzk2SBvVw=
+  on:
+    tags: true
+    repo: dominicrico/dbconvert
