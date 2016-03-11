@@ -23,6 +23,8 @@ program
   .command('convert')
   .alias('con')
   .option('--table [table]', 'Run conversion for a single table/collection.')
+  .option('--single [id]',
+    'Run conversion for a single entry. Run with `--table` option!')
   .option('--drop',
     'Drop collections/tables if they exist on destination host.')
   .option('--silent', 'No output, except of errors.')
@@ -47,6 +49,8 @@ program
   .command('migrate')
   .alias('mig')
   .option('--table [table]', 'Run migration for a single table/collection.')
+  .option('--single [id]',
+    'Run conversion for a single entry. Run with `--table` option!')
   .option('--drop', 'Drop collections/tables if they exist on destination .')
   .option('--silent', 'No output, except of errors.')
   .option('--log [level]', 'Define a log level [level].',
