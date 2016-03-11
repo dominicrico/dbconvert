@@ -5,10 +5,11 @@
   "relation": "/example/relation.js",
 
   "fromHost": {
-    "hostname": "localhost",
-    "port": "27017",
+    "hostname": "176.9.114.232",
+    "port": 27017,
     "database": "test",
-    "adapter": "adapter-mongodb"
+    "user": "dbConvert",
+    "password": "dbConvert123"
   },
 
   "toHost": "mysql://dbConvert:dbConvert123@176.9.114.232:3306/test"
