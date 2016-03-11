@@ -12,17 +12,17 @@ Available via NPM
 
 ## Quick Example
 
-Bash with DB Convert as global package
+Bash with DB Convert as global package with `config.json` in same directory
 ```
 dbconvert con
 ```
 
-In your projection
+In your project
 ```
 var DbConvert = require('dbconvert');
 var config = {
   //your config goes here
-}
+};
 
 var dbc = new DbConvert().load(config);
 dbc.convert();
@@ -30,7 +30,7 @@ dbc.convert();
 
 ## Usage
 
-To run DB Convert you need at least to configure the `toHost` and the `fromHost`. This can be done in a `config.json` in the directory you want to run DB Convert or you insert the path to the file in the `--config` argument. If you want to remap your tables/collections or columns/fields you need a `mapping.js` with all the mapping information. Examples of the files can be found in the [example folder](https://github.com/dominicrico/db-convert/tree/master/example).  
+To run DB Convert you need at least to configure the `toHost` and the `fromHost`. This can be done in a `config.json` in the directory you want to run DB Convert or you insert the path to the file in the `--config` argument. If you want to remap your tables/collections or columns/fields you need a `mapping.js` with all the mapping information. Same thing for relations. Examples of the files can be found in the [example folder](https://github.com/dominicrico/db-convert/tree/master/example).  
 
 #### Convert
 ```

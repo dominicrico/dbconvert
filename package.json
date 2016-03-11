@@ -1,7 +1,7 @@
 {
   "name": "dbconvert",
   "version": "0.2.0",
-  "description": "Convert your MySQL to MongoDB.",
+  "description": "Convert your database to a new database.",
   "main": "lib/db-convert.js",
   "scripts": {
     "test": "grunt test --verbose"
@@ -23,7 +23,8 @@
     "relational",
     "nosql",
     "mysql",
-    "mongodb"
+    "mongodb",
+    "adapter"
   ],
   "author": "Dominic Rico-Gomez",
   "license": "MIT",
