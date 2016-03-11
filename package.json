@@ -1,6 +1,6 @@
 {
   "name": "dbconvert",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Convert your MySQL to MongoDB.",
   "main": "lib/db-convert.js",
   "scripts": {
@@ -53,5 +53,13 @@
     "jshint-stylish": "^2.1.0",
     "load-grunt-tasks": "^3.4.0",
     "mocha": "^2.4.5"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/dominicrico/dbconvert/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dominicrico/dbconvert/dbconvert.git"
+  },
+  "preferGlobal": true
 }
