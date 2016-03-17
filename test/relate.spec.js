@@ -86,7 +86,7 @@ describe('DBConvert', function() {
         this.timeout(500);
         dbConv = new dbConvert.DBconvert();
         setTimeout(function() {
-          config._ = ['rel'];
+          configMysql._ = ['rel'];
           done();
         }, 400);
       });

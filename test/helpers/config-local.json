@@ -13,5 +13,7 @@
 
   "mapping": "/test/helpers/mapping.js",
 
+  "relation": "/test/helpers/relation.js",
+
   "toHost": "mongodb://localhost:27017/test"
 }
