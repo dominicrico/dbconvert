@@ -46,7 +46,16 @@ describe('DBConvert', function() {
           dbConv.should.be.an('object');
           dbConv.config.should.be.an('object');
           dbConv.config.should.be.defined;
-          done();
+          var host = dbConv.connections.toHost;
+          host.connect(function() {
+            host.useCollection('collection3').count(
+              function(err,
+                count) {
+                (err === null).should.be.true;
+                count.should.equal(2);
+                done();
+              });
+          });
         });
       });
 

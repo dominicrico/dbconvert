@@ -1,12 +1,13 @@
 {
-  "log": "info",
+  "log": "silly",
 
   "silent": true,
 
   "fromHost": {
     "hostname": "localhost",
     "port": 27017,
-    "database": "test"
+    "database": "test",
+    "adapter": "adapter-mongodb"
   },
 
   "drop": true,

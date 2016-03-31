@@ -1,7 +1,7 @@
 //jshint ignore: start
 
 module.exports = [{
-  table: 'mysqlTable1:mongoTable1',
+  table: 'table1:collection1',
   fields: [{
     a: 'rowMongo1',
     convertFn: function(entry) {
@@ -27,12 +27,23 @@ module.exports = [{
     type: 'json'
   }]
 }, {
-  table: 'mysqlTable2:mongoTable2',
+  table: 'table2:collection2',
   fields: [{
     parent: 'relate',
     type: 'objectId'
   }, {
     data: 'data',
     type: 'string'
+  }]
+}, {
+  table: 'table3:collection3',
+  fields: [{
+    title: 'title',
+    name: 'name',
+    data: 'data'
+  }],
+  merge: [{
+    fields: ['data'],
+    if: ['title', 'name']
   }]
 }];

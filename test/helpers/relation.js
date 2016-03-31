@@ -1,4 +1,4 @@
 module.exports = [{
-  table: 'mongoTable2:mongoTable1',
+  table: 'table2:collection1',
   fields: ['parent:id']
 }];

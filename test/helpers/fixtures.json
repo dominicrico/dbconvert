@@ -1,0 +1,56 @@
+{
+  "table1": [{
+    "a": "abc",
+    "b": "def",
+    "c": "fooBar",
+    "d": 10,
+    "e": "2016-03-16T16:42:34.441Z",
+    "f": [1, 2, 3, 4, 5, 6],
+    "g": {
+      "foo": "bar",
+      "fooBar": "fooBarz"
+    }
+  }, {
+    "a": "lorem",
+    "b": "ipsum",
+    "c": "dolor",
+    "d": 399,
+    "e": "2016-02-12T01:34:32.441Z",
+    "f": ["foo", "bar", "barz"],
+    "g": {
+      "abc": 1,
+      "def": 99
+    }
+  }, {
+    "a": "bla",
+    "b": "blub",
+    "c": "bla blub",
+    "d": 9123634,
+    "e": "2014-12-2412:02:22.441Z",
+    "f": ["foo", 99, "barz11"],
+    "g": {
+      "1": "is not a number",
+      "XX": 1
+    }
+  }],
+  "table2": [{
+    "parent": 1,
+    "data": "Random String"
+  }, {
+    "parent": 2,
+    "data": "Another Random String"
+  }],
+  "table3": [{
+    "title": "Lorem Ipsum",
+    "person": "Bob",
+    "data": "Some data..."
+  }, {
+    "title": "Lorem Ipsum",
+    "person": "Bob",
+    "data": "Some other data..."
+  }, {
+    "title": "New Title",
+    "person": "Peter",
+    "data": "Random Data"
+  }]
+}

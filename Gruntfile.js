@@ -25,6 +25,10 @@ module.exports = function(grunt) {
       all: ['bin/*.js', 'lib/**/*.js']
     },
 
+    exec: {
+      loadFixtures: 'node ./test/helpers/loadFixtures.js'
+    },
+
     mochaTest: {
       test: {
         options: {
@@ -59,7 +63,7 @@ module.exports = function(grunt) {
     'mocha_istanbul'
   ]);
 
-  grunt.registerTask('test', ['eslint', 'jshint', 'mochaTest']);
+  grunt.registerTask('test', ['eslint', 'jshint', 'exec', 'mochaTest']);
 
   grunt.registerTask('build', ['default']);
 

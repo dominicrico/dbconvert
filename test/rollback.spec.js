@@ -98,7 +98,7 @@ describe('DBConvert', function() {
         dbConv.rollback(config, function() {
           var host = dbConv.connections.toHost;
           host.connect(function() {
-            host.useCollection('mongoTable1').count(
+            host.useCollection('collection1').count(
               function(err,
                 count) {
                 (err === null).should.be.true;
