@@ -4,7 +4,7 @@
   "description": "Convert your database to a new database.",
   "main": "lib/db-convert.js",
   "scripts": {
-    "test": "grunt test --verbose"
+    "test": "grunt test"
   },
   "bin": {
     "dbconvert": "./bin/db-convert.js"
